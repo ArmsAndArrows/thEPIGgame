@@ -42,7 +42,7 @@ function switchTogglers() {
 
 rollBtn.addEventListener("click", function () {
   const rolledNumber = Math.trunc(Math.random() * 6 + 1);
-  dice.src = `../assets/d${rolledNumber}.png`;
+  dice.src = `./assets/d${rolledNumber}.png`;
   if (rolledNumber !== 1) {
     currentTurnNumber += rolledNumber;
     document.querySelector(`.current__score--${playerFlag}`).textContent =
