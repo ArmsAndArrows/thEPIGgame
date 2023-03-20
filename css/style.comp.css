@@ -1,0 +1,397 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+@font-face {
+  font-family: SunnyspellsRegular;
+  src: url("../assets/fonts/SunnyspellsRegular-MV9ze.otf") format("opentype");
+}
+html {
+  box-sizing: border-box;
+  font-size: 40%;
+}
+@media only screen and (min-width: 400px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 55%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(90deg, rgba(209, 197, 92, 0.8), rgba(211, 193, 92, 0.8)), url(../assets/bck.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: SunnyspellsRegular;
+  display: grid;
+}
+@media only screen and (min-width: 700px) and (min-height: 700px) {
+  body {
+    margin: 5%;
+  }
+}
+@media only screen and (min-width: 1000px) and (min-height: 1000px) {
+  body {
+    margin: 0;
+  }
+}
+
+.logo {
+  position: absolute;
+  color: rgb(129, 45, 45);
+  background-color: rgba(116, 115, 62, 0.327);
+  padding: 3rem;
+  border-radius: 5rem 0 5rem 0;
+  text-align: center;
+  font-size: 8rem;
+  line-height: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: gameAppear 2s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.logo span {
+  color: yellow;
+  font-size: 25rem;
+}
+@media only screen and (min-height: 200px) {
+  .logo {
+    font-size: 2rem;
+  }
+  .logo span {
+    font-size: 8rem;
+  }
+}
+.container {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  position: relative;
+  border-radius: 0 2rem 0 2rem;
+  z-index: 1;
+  animation: gameAppear 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+  display: none;
+}
+
+@keyframes gameAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.player {
+  color: rgb(214, 210, 193);
+  padding: 1.5rem;
+  width: 100%;
+  position: relative;
+  height: 50%;
+  display: grid;
+}
+@media only screen and (min-height: 200px) {
+  .player {
+    width: 50%;
+    height: 100%;
+    padding: 5rem;
+  }
+}
+@media only screen and (min-height: 550px) {
+  .player {
+    width: 100%;
+    height: 50%;
+    padding: 1.5rem;
+  }
+}
+@media only screen and (min-height: 700px) {
+  .player {
+    width: 100%;
+    height: 50%;
+    padding: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .player {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .player {
+    width: 40%;
+    padding: 5rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .player {
+    width: 30%;
+    padding: 5rem;
+  }
+}
+.player--1 {
+  background-color: rgba(48, 54, 21, 0.801);
+  align-items: start;
+}
+@media only screen and (min-height: 200px) {
+  .player--1 {
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .player--1 {
+    border-radius: 2rem 0 0 0;
+  }
+}
+.player--2 {
+  background-color: rgba(48, 54, 21, 0.801);
+}
+@media only screen and (min-height: 200px) {
+  .player--2 {
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .player--2 {
+    border-radius: 0 0 2rem;
+  }
+}
+.player--active {
+  background-color: rgb(48, 54, 21);
+}
+.player__actual {
+  text-align: center;
+}
+.player__win {
+  font-size: 2rem;
+  color: rgb(0, 128, 0);
+  display: none;
+  animation: opaque 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.player__name {
+  font-size: 5rem;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  align-items: baseline;
+}
+.player__name span {
+  font-size: 4rem;
+}
+.player__win-check {
+  font-size: 2rem;
+  transform: translateX(20px);
+  color: rgb(0, 128, 0);
+  display: none;
+}
+.player__score {
+  font-size: 8rem;
+  line-height: 0.9;
+}
+
+.reveal-fast {
+  display: block;
+  animation: opaque 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-slow {
+  display: block;
+  animation: opaque 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes opaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.current {
+  background-color: rgba(160, 6, 6, 0.822);
+  text-align: center;
+  margin: 0 3rem;
+  border-radius: 0 2rem 0 2rem;
+}
+.current__text {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.current__score {
+  font-size: 3rem;
+}
+
+.game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  position: absolute;
+  font-size: 2.5rem;
+  color: rgb(231, 190, 4);
+}
+@media only screen and (min-height: 200px) {
+  .game {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-height: 500px) {
+  .game {
+    flex-direction: row;
+  }
+}
+@media only screen and (min-width: 500px) {
+  .game {
+    flex-wrap: nowrap;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .game {
+    flex-direction: column;
+  }
+}
+.game__restart {
+  border: 1px solid rgb(231, 190, 4);
+  padding: 0.1rem 1rem;
+  border-radius: 0 2rem 2rem 2rem;
+  transition: all 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.game__restart:hover {
+  color: rgb(214, 210, 193);
+  border-color: rgb(214, 210, 193);
+  transform: translateY(-2px);
+}
+.game__restart:active {
+  transform: translateY(0px);
+  color: rgb(231, 190, 4);
+  border-color: rgb(231, 190, 4);
+}
+.game__dice {
+  width: 20%;
+  height: auto;
+  transition: all 0.1s;
+}
+.game__dice:hover {
+  animation: diceAnimation 5s linear infinite;
+}
+@media only screen and (min-height: 200px) {
+  .game__dice {
+    width: 100%;
+  }
+}
+@media only screen and (min-height: 500px) {
+  .game__dice {
+    width: 20%;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .game__dice {
+    width: 100%;
+  }
+}
+@keyframes diceAnimation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.game__roll {
+  border: 1px solid rgb(231, 190, 4);
+  border: 1px solid rgb(231, 190, 4);
+  padding: 0.1rem 2rem;
+  border-radius: 2rem 0 2rem 2rem;
+  transition: all 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.game__roll:hover {
+  color: rgb(214, 210, 193);
+  border-color: rgb(214, 210, 193);
+  transform: translateY(-2px);
+}
+.game__roll:active {
+  color: rgb(231, 190, 4);
+  border-color: rgb(231, 190, 4);
+  transform: translateY(0px);
+}
+.game__hold {
+  border: 1px solid rgb(231, 190, 4);
+  border: 1px solid rgb(231, 190, 4);
+  padding: 0.1rem 2rem;
+  border-radius: 2rem 0 2rem 2rem;
+  transition: all 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.game__hold:hover {
+  color: rgb(214, 210, 193);
+  border-color: rgb(214, 210, 193);
+  transform: translateY(-2px);
+}
+.game__hold:active {
+  transform: translateY(0px);
+  color: rgb(231, 190, 4);
+  border-color: rgb(231, 190, 4);
+}
+
+*::selection {
+  background-color: none;
+  color: none;
+}
+
+/*# sourceMappingURL=style.comp.css.map */

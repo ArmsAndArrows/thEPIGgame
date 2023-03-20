@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/b77f5bf5ce.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>thEPIGgame</title>
+  </head>
+  <body>
+    <header class="logo"><h1>th<span>E PIG</span> game</h1></header>
+    <main class="container">
+      <div class="player player--1 player--active">
+        <div class="player__actual">
+          <p class="player__win player__win--1">You win!</p>
+          <p class="player__name">P
+            <span>layer 1 </span
+            ><span class="player__win-check player__win-check--1"
+              ><i class="fa-solid fa-check"></i
+            ></span>
+          </p>
+          <p class="player__score player__score--1">0</p>
+        </div>
+        <div class="current">
+          <p class="current__text">Current</p>
+          <p class="current__score current__score--1">0</p>
+        </div>
+      </div>
+      <div class="player player--2">
+        <div class="player__actual">
+          <p class="player__win player__win--2">You win!</p>
+          <p class="player__name">P
+            <span>layer 2 </span
+            ><span class="player__win-check player__win-check--2"
+              ><i class="fa-solid fa-check"></i
+            ></span>
+          </p>
+          <p class="player__score player__score--2">0</p>
+        </div>
+        <div class="current">
+          <p class="current__text">Current</p>
+          <p class="current__score current__score--2">0</p>
+        </div>
+      </div>
+      <div class="game">
+        <button class="game__restart">Restart</button>
+        <img class="game__dice" src="assets/d2.png" alt="dice" />
+        <button class="game__roll">Roll</button>
+        <button class="game__hold">hold</button>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

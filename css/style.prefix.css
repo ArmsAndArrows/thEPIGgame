@@ -1,0 +1,402 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+@font-face {
+  font-family: SunnyspellsRegular;
+  src: url("../assets/fonts/SunnyspellsRegular-MV9ze.otf") format("opentype");
+}
+html {
+  box-sizing: border-box;
+  font-size: 40%;
+}
+@media only screen and (min-width: 400px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 55%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(90deg, rgba(209, 197, 92, 0.8), rgba(211, 193, 92, 0.8)), url(../assets/bck.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: SunnyspellsRegular;
+  display: grid;
+}
+@media only screen and (min-width: 700px) and (min-height: 700px) {
+  body {
+    margin: 5%;
+  }
+}
+@media only screen and (min-width: 1000px) and (min-height: 1000px) {
+  body {
+    margin: 0;
+  }
+}
+
+.logo {
+  position: absolute;
+  color: rgb(129, 45, 45);
+  background-color: rgba(116, 115, 62, 0.327);
+  padding: 3rem;
+  border-radius: 5rem 0 5rem 0;
+  text-align: center;
+  font-size: 8rem;
+  line-height: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: gameAppear 2s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.logo span {
+  color: yellow;
+  font-size: 25rem;
+}
+@media only screen and (min-height: 200px) {
+  .logo {
+    font-size: 2rem;
+  }
+  .logo span {
+    font-size: 8rem;
+  }
+}
+.container {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  position: relative;
+  border-radius: 0 2rem 0 2rem;
+  z-index: 1;
+  animation: gameAppear 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+  display: none;
+}
+
+@keyframes gameAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.player {
+  color: rgb(214, 210, 193);
+  padding: 1.5rem;
+  width: 100%;
+  position: relative;
+  height: 50%;
+  display: grid;
+}
+@media only screen and (min-height: 200px) {
+  .player {
+    width: 50%;
+    height: 100%;
+    padding: 5rem;
+  }
+}
+@media only screen and (min-height: 550px) {
+  .player {
+    width: 100%;
+    height: 50%;
+    padding: 1.5rem;
+  }
+}
+@media only screen and (min-height: 700px) {
+  .player {
+    width: 100%;
+    height: 50%;
+    padding: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .player {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .player {
+    width: 40%;
+    padding: 5rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .player {
+    width: 30%;
+    padding: 5rem;
+  }
+}
+.player--1 {
+  background-color: rgba(48, 54, 21, 0.801);
+  align-items: start;
+}
+@media only screen and (min-height: 200px) {
+  .player--1 {
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .player--1 {
+    border-radius: 2rem 0 0 0;
+  }
+}
+.player--2 {
+  background-color: rgba(48, 54, 21, 0.801);
+}
+@media only screen and (min-height: 200px) {
+  .player--2 {
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .player--2 {
+    border-radius: 0 0 2rem;
+  }
+}
+.player--active {
+  background-color: rgb(48, 54, 21);
+}
+.player__actual {
+  text-align: center;
+}
+.player__win {
+  font-size: 2rem;
+  color: rgb(0, 128, 0);
+  display: none;
+  animation: opaque 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.player__name {
+  font-size: 5rem;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  align-items: baseline;
+}
+.player__name span {
+  font-size: 4rem;
+}
+.player__win-check {
+  font-size: 2rem;
+  transform: translateX(20px);
+  color: rgb(0, 128, 0);
+  display: none;
+}
+.player__score {
+  font-size: 8rem;
+  line-height: 0.9;
+}
+
+.reveal-fast {
+  display: block;
+  animation: opaque 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-slow {
+  display: block;
+  animation: opaque 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes opaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.current {
+  background-color: rgba(160, 6, 6, 0.822);
+  text-align: center;
+  margin: 0 3rem;
+  border-radius: 0 2rem 0 2rem;
+}
+.current__text {
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.current__score {
+  font-size: 3rem;
+}
+
+.game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  position: absolute;
+  font-size: 2.5rem;
+  color: rgb(231, 190, 4);
+}
+@media only screen and (min-height: 200px) {
+  .game {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-height: 500px) {
+  .game {
+    flex-direction: row;
+  }
+}
+@media only screen and (min-width: 500px) {
+  .game {
+    flex-wrap: nowrap;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .game {
+    flex-direction: column;
+  }
+}
+.game__restart {
+  border: 1px solid rgb(231, 190, 4);
+  padding: 0.1rem 1rem;
+  border-radius: 0 2rem 2rem 2rem;
+  transition: all 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.game__restart:hover {
+  color: rgb(214, 210, 193);
+  border-color: rgb(214, 210, 193);
+  transform: translateY(-2px);
+}
+.game__restart:active {
+  transform: translateY(0px);
+  color: rgb(231, 190, 4);
+  border-color: rgb(231, 190, 4);
+}
+.game__dice {
+  width: 20%;
+  height: auto;
+  transition: all 0.1s;
+}
+.game__dice:hover {
+  animation: diceAnimation 5s linear infinite;
+}
+@media only screen and (min-height: 200px) {
+  .game__dice {
+    width: 100%;
+  }
+}
+@media only screen and (min-height: 500px) {
+  .game__dice {
+    width: 20%;
+  }
+}
+@media only screen and (min-width: 700px) {
+  .game__dice {
+    width: 100%;
+  }
+}
+@keyframes diceAnimation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.game__roll {
+  border: 1px solid rgb(231, 190, 4);
+  border: 1px solid rgb(231, 190, 4);
+  padding: 0.1rem 2rem;
+  border-radius: 2rem 0 2rem 2rem;
+  transition: all 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.game__roll:hover {
+  color: rgb(214, 210, 193);
+  border-color: rgb(214, 210, 193);
+  transform: translateY(-2px);
+}
+.game__roll:active {
+  color: rgb(231, 190, 4);
+  border-color: rgb(231, 190, 4);
+  transform: translateY(0px);
+}
+.game__hold {
+  border: 1px solid rgb(231, 190, 4);
+  border: 1px solid rgb(231, 190, 4);
+  padding: 0.1rem 2rem;
+  border-radius: 2rem 0 2rem 2rem;
+  transition: all 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.game__hold:hover {
+  color: rgb(214, 210, 193);
+  border-color: rgb(214, 210, 193);
+  transform: translateY(-2px);
+}
+.game__hold:active {
+  transform: translateY(0px);
+  color: rgb(231, 190, 4);
+  border-color: rgb(231, 190, 4);
+}
+
+*::-moz-selection {
+  background-color: none;
+  color: none;
+}
+
+*::selection {
+  background-color: none;
+  color: none;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3Nhc3MvX2Jhc2Uuc2NzcyIsInN0eWxlLmNvbXAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQWdCQTs7O0VBR0ksc0JBQUE7QUNmSjs7QURrQkE7RUFDSSxTQUFBO0FDZko7O0FEa0JBOztFQUVJLFlBQUE7QUNmSjs7QURrQkE7Ozs7O0VBS0ksY0FBQTtFQUNBLGVBQUE7QUNmSjs7QURrQkE7Ozs7RUFJSSxhQUFBO0FDZko7O0FEa0JBO0VBQ0ksVUFBQTtFQUNBLGVBQUE7QUNmSjs7QURrQkE7Ozs7Ozs7RUFPSSx5QkFBQTtBQ2ZKOztBRG9CQTtFQUNJLCtCQUFBO0VBQ0EsMkVBQUE7QUNqQko7QURvQkE7RUFDSSxzQkFBQTtFQUVBLGNBQUE7QUNuQko7QURvQkk7RUFKSjtJQUtRLGNBQUE7RUNqQk47QUFDRjtBRG1CSTtFQVJKO0lBU1EsY0FBQTtFQ2hCTjtBQUNGO0FEaUJJO0VBWEo7SUFZUSxnQkFBQTtFQ2ROO0FBQ0Y7QURlSTtFQWRKO0lBZVEsY0FBQTtFQ1pOO0FBQ0Y7O0FEZUE7RUFDSSx3Q0FBQTtFQUNBLG1DQUFBO0VBRUEsNEdBQUE7RUFFQSxzQkFBQTtFQUNBLDJCQUFBO0VBQ0EsNEJBQUE7RUFDQSwrQkFBQTtFQUNBLGFBQUE7QUNkSjtBRGVJO0VBWEo7SUFZUSxVQUFBO0VDWk47QUFDRjtBRGFJO0VBZEo7SUFlUSxTQUFBO0VDVk47QUFDRjs7QURjQTtFQUNJLGtCQUFBO0VBQ0EsdUJBQUE7RUFDQSwyQ0FBQTtFQUNBLGFBQUE7RUFDQSw0QkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLGNBQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLGdDQUFBO0VBS0EsNERBQUE7QUNmSjtBRFdJO0VBQ0ksYUFBQTtFQUNBLGdCQUFBO0FDVFI7QURZSTtFQWpCSjtJQWtCUSxlQUFBO0VDVE47RURVTTtJQUNJLGVBQUE7RUNSVjtBQUNGO0FEZUE7RUFDSSxlQUFBO0VBQ0EsdUJBQUE7RUFDQSxtQkFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSw0QkFBQTtFQUNBLFVBQUE7RUFDQSw0REFBQTtFQUVBLGFBQUE7QUNkSjs7QURpQkE7RUFDSTtJQUNJLFVBQUE7RUNkTjtFRGdCRTtJQUNJLFVBQUE7RUNkTjtBQUNGO0FEbUJBO0VBK0JJLHlCQTNMZTtFQTRMZixlQUFBO0VBQ0EsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsV0FBQTtFQUNBLGFBQUE7QUMvQ0o7QURZSTtFQURKO0lBRVEsVUFBQTtJQUNBLFlBQUE7SUFFQSxhQUFBO0VDVk47QUFDRjtBRFdJO0VBUEo7SUFRUSxXQUFBO0lBQ0EsV0FBQTtJQUNBLGVBQUE7RUNSTjtBQUNGO0FEU0k7RUFaSjtJQWFRLFdBQUE7SUFDQSxXQUFBO0lBRUEsZUFBQTtFQ1BOO0FBQ0Y7QURRSTtFQWxCSjtJQW1CUSxVQUFBO0VDTE47QUFDRjtBRE1JO0VBckJKO0lBc0JRLFVBQUE7SUFFQSxhQUFBO0VDSk47QUFDRjtBREtJO0VBMUJKO0lBMkJRLFVBQUE7SUFDQSxhQUFBO0VDRk47QUFDRjtBRFdJO0VBQ0kseUNBOUxXO0VBK0xYLGtCQUFBO0FDVFI7QURVUTtFQUhKO0lBSVEsbUJBQUE7RUNQVjtBQUNGO0FEUVE7RUFOSjtJQU9RLHlCQUFBO0VDTFY7QUFDRjtBRE9JO0VBQ0kseUNBeE1XO0FDbU1uQjtBRE1RO0VBRko7SUFHUSxtQkFBQTtFQ0hWO0FBQ0Y7QURJUTtFQUxKO0lBTVEsdUJBQUE7RUNEVjtBQUNGO0FESUk7RUFDSSxpQ0FuTk87QUNpTmY7QURLSTtFQUNJLGtCQUFBO0FDSFI7QURNSTtFQUNJLGVBQUE7RUFDQSxxQkE5Tk07RUErTk4sYUFBQTtFQUNBLHlEQUFBO0FDSlI7QURPSTtFQUNJLGVBQUE7RUFDQSxhQUFBO0VBQ0EsaUJBQUE7RUFDQSx1QkFBQTtFQUNBLHFCQUFBO0FDTFI7QURNUTtFQUNJLGVBQUE7QUNKWjtBRFFJO0VBQ0ksZUFBQTtFQUNBLDJCQUFBO0VBQ0EscUJBalBNO0VBa1BOLGFBQUE7QUNOUjtBRFNJO0VBQ0ksZUFBQTtFQUNBLGdCQUFBO0FDUFI7O0FEV0E7RUFDSSxjQUFBO0VBQ0EseURBQUE7QUNSSjs7QURXQTtFQUNJLGNBQUE7RUFDQSx5REFBQTtBQ1JKOztBRFdBO0VBQ0k7SUFDSSxVQUFBO0VDUk47RURVRTtJQUNJLFVBQUE7RUNSTjtBQUNGO0FEVUE7RUFDSSx3Q0E3UVU7RUE4UVYsa0JBQUE7RUFDQSxjQUFBO0VBQ0EsNEJBQUE7QUNSSjtBRFNJO0VBQ0ksZUFBQTtFQUNBLHlCQUFBO0FDUFI7QURTSTtFQUNJLGVBQUE7QUNQUjs7QURhQTtFQUNJLGFBQUE7RUFDQSxlQUFBO0VBQ0EsdUJBQUE7RUFFQSxTQUFBO0VBRUEsa0JBQUE7RUFDQSxpQkFBQTtFQUNBLHVCQXZTWTtBQzJSaEI7QURjSTtFQVhKO0lBWVEsc0JBQUE7RUNYTjtBQUNGO0FEWUk7RUFkSjtJQWVRLG1CQUFBO0VDVE47QUFDRjtBRFVJO0VBakJKO0lBa0JRLGlCQUFBO0VDUE47QUFDRjtBRFFJO0VBcEJKO0lBcUJRLHNCQUFBO0VDTE47QUFDRjtBRE9JO0VBQ0ksa0NBQUE7RUFDQSxvQkFBQTtFQUNBLCtCQUFBO0VBQ0Esd0RBQUE7QUNMUjtBRE1RO0VBQ0kseUJBN1RPO0VBOFRQLGdDQTlUTztFQStUUCwyQkFBQTtBQ0paO0FETVE7RUFDSSwwQkFBQTtFQUNBLHVCQWxVSTtFQW1VSiw4QkFuVUk7QUMrVGhCO0FET0k7RUFDSSxVQUFBO0VBQ0EsWUFBQTtFQUNBLG9CQUFBO0FDTFI7QURNUTtFQUNJLDJDQUFBO0FDSlo7QURNUTtFQVBKO0lBUVEsV0FBQTtFQ0hWO0FBQ0Y7QURJUTtFQVZKO0lBV1EsVUFBQTtFQ0RWO0FBQ0Y7QURFUTtFQWJKO0lBY1EsV0FBQTtFQ0NWO0FBQ0Y7QURDSTtFQUNJO0lBQ0ksd0JBQUE7RUNDVjtFRENNO0lBQ0ksMEJBQUE7RUNDVjtBQUNGO0FEQ0k7RUFDSSxrQ0FBQTtFQUNBLGtDQUFBO0VBQ0Esb0JBQUE7RUFDQSwrQkFBQTtFQUNBLHdEQUFBO0FDQ1I7QURBUTtFQUNJLHlCQXZXTztFQXdXUCxnQ0F4V087RUF5V1AsMkJBQUE7QUNFWjtBREFRO0VBQ0ksdUJBM1dJO0VBNFdKLDhCQTVXSTtFQTZXSiwwQkFBQTtBQ0VaO0FEQ0k7RUFDSSxrQ0FBQTtFQUNBLGtDQUFBO0VBQ0Esb0JBQUE7RUFDQSwrQkFBQTtFQUNBLHdEQUFBO0FDQ1I7QURBUTtFQUNJLHlCQXhYTztFQXlYUCxnQ0F6WE87RUEwWFAsMkJBQUE7QUNFWjtBREFRO0VBQ0ksMEJBQUE7RUFDQSx1QkE3WEk7RUE4WEosOEJBOVhJO0FDZ1loQjs7QURHQTtFQUNJLHNCQUFBO0VBQ0EsV0FBQTtBQ0FKOztBREZBO0VBQ0ksc0JBQUE7RUFDQSxXQUFBO0FDQUoiLCJmaWxlIjoic3R5bGUucHJlZml4LmNzcyJ9 */

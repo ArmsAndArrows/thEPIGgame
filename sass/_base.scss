@@ -1,0 +1,396 @@
+///Colors
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(0, 0, 0);
+
+$color-light-gray: rgb(214, 210, 193);
+$color-actions: rgb(231, 190, 4);
+$color-green: rgb(0, 128, 0);
+$color-total: rgba(160, 6, 6, 0.822);
+$color-active: rgb(48, 54, 21);
+$color-non-active: rgba(48, 54, 21, 0.801);
+///Fonts
+
+$ft-bold: 700;
+$ft-normal: 400;
+
+///RESETS
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+///BEGIN
+///
+///
+@font-face {
+    font-family: SunnyspellsRegular;
+    src: url("../assets/fonts/SunnyspellsRegular-MV9ze.otf") format("opentype");
+}
+
+html {
+    box-sizing: border-box;
+    // font-size: 62.5%; ////defines
+    font-size: 40%;
+    @media only screen and (min-width: 400px) {
+        font-size: 50%;
+    }
+
+    @media only screen and (min-width: 600px) {
+        font-size: 55%;
+    }
+    @media only screen and (min-width: 1000px) {
+        font-size: 62.5%; ////defines
+    }
+    @media only screen and (min-width: 1400px) {
+        font-size: 75%; ////defines
+    }
+}
+
+body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+
+    background: linear-gradient(90deg, rgba(rgb(209, 197, 92), 0.8), rgba(rgb(211, 193, 92), 0.8)),
+        url(../assets/bck.png);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: SunnyspellsRegular;
+    display: grid;
+    @media only screen and (min-width: 700px) and (min-height: 700px) {
+        margin: 5%;
+    }
+    @media only screen and (min-width: 1000px) and (min-height: 1000px) {
+        margin: 0;
+    }
+}
+
+///LOGO FOR BEGINNING
+.logo {
+    position: absolute;
+    color: rgb(129, 45, 45);
+    background-color: rgba(116, 115, 62, 0.327);
+    padding: 3rem;
+    border-radius: 5rem 0 5rem 0;
+    text-align: center;
+    font-size: 8rem;
+    line-height: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    span {
+        color: yellow;
+        font-size: 25rem;
+    }
+    animation: gameAppear 2s cubic-bezier(0.39, 0.575, 0.565, 1);
+    @media only screen and (min-height: 200px) {
+        font-size: 2rem;
+        span {
+            font-size: 8rem;
+        }
+    }
+    @media only screen and (min-height: 550px) {
+    }
+}
+
+///2 CARDS AND CONTROLLER
+.container {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    position: relative;
+    border-radius: 0 2rem 0 2rem;
+    z-index: 1;
+    animation: gameAppear 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+    display: none;
+}
+
+@keyframes gameAppear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+///PLAYER BOX
+
+.player {
+    @media only screen and (min-height: 200px) {
+        width: 50%;
+        height: 100%;
+
+        padding: 5rem;
+    }
+    @media only screen and (min-height: 550px) {
+        width: 100%;
+        height: 50%;
+        padding: 1.5rem;
+    }
+    @media only screen and (min-height: 700px) {
+        width: 100%;
+        height: 50%;
+
+        padding: 1.5rem;
+    }
+    @media only screen and (min-width: 1000px) {
+        width: 50%;
+    }
+    @media only screen and (min-width: 1000px) {
+        width: 40%;
+
+        padding: 5rem;
+    }
+    @media only screen and (min-width: 1400px) {
+        width: 30%;
+        padding: 5rem;
+    }
+
+    color: $color-light-gray;
+    padding: 1.5rem;
+    width: 100%;
+    position: relative;
+    height: 50%;
+    display: grid;
+
+    &--1 {
+        background-color: $color-non-active;
+        align-items: start;
+        @media only screen and (min-height: 200px) {
+            align-items: center;
+        }
+        @media only screen and (min-width: 700px) {
+            border-radius: 2rem 0 0 0;
+        }
+    }
+    &--2 {
+        background-color: $color-non-active;
+        @media only screen and (min-height: 200px) {
+            align-items: center;
+        }
+        @media only screen and (min-width: 700px) {
+            border-radius: 0 0 2rem;
+        }
+    }
+
+    &--active {
+        background-color: $color-active;
+    }
+
+    &__actual {
+        text-align: center;
+    }
+
+    &__win {
+        font-size: 2rem;
+        color: $color-green;
+        display: none;
+        animation: opaque 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &__name {
+        font-size: 5rem;
+        display: flex;
+        font-weight: bold;
+        justify-content: center;
+        align-items: baseline;
+        span {
+            font-size: 4rem;
+        }
+    }
+
+    &__win-check {
+        font-size: 2rem;
+        transform: translateX(20px);
+        color: $color-green;
+        display: none;
+    }
+
+    &__score {
+        font-size: 8rem;
+        line-height: 0.9;
+    }
+}
+
+.reveal-fast {
+    display: block;
+    animation: opaque 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-slow {
+    display: block;
+    animation: opaque 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes opaque {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.current {
+    background-color: $color-total;
+    text-align: center;
+    margin: 0 3rem;
+    border-radius: 0 2rem 0 2rem;
+    &__text {
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+    &__score {
+        font-size: 3rem;
+    }
+}
+
+///GAME CONTROLS
+
+.game {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 2rem;
+
+    position: absolute;
+    font-size: 2.5rem;
+    color: $color-actions;
+
+    @media only screen and (min-height: 200px) {
+        flex-direction: column;
+    }
+    @media only screen and (min-height: 500px) {
+        flex-direction: row;
+    }
+    @media only screen and (min-width: 500px) {
+        flex-wrap: nowrap;
+    }
+    @media only screen and (min-width: 1000px) {
+        flex-direction: column;
+    }
+
+    &__restart {
+        border: 1px solid $color-actions;
+        padding: 0.1rem 1rem;
+        border-radius: 0 2rem 2rem 2rem;
+        transition: all 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+        &:hover {
+            color: $color-light-gray;
+            border-color: $color-light-gray;
+            transform: translateY(-2px);
+        }
+        &:active {
+            transform: translateY(0px);
+            color: $color-actions;
+            border-color: $color-actions;
+        }
+    }
+    &__dice {
+        width: 20%;
+        height: auto;
+        transition: all 0.1s;
+        &:hover {
+            animation: diceAnimation 5s linear infinite;
+        }
+        @media only screen and (min-height: 200px) {
+            width: 100%;
+        }
+        @media only screen and (min-height: 500px) {
+            width: 20%;
+        }
+        @media only screen and (min-width: 700px) {
+            width: 100%;
+        }
+    }
+    @keyframes diceAnimation {
+        0% {
+            transform: rotateZ(0deg);
+        }
+        100% {
+            transform: rotateZ(360deg);
+        }
+    }
+    &__roll {
+        border: 1px solid $color-actions;
+        border: 1px solid $color-actions;
+        padding: 0.1rem 2rem;
+        border-radius: 2rem 0 2rem 2rem;
+        transition: all 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+        &:hover {
+            color: $color-light-gray;
+            border-color: $color-light-gray;
+            transform: translateY(-2px);
+        }
+        &:active {
+            color: $color-actions;
+            border-color: $color-actions;
+            transform: translateY(0px);
+        }
+    }
+    &__hold {
+        border: 1px solid $color-actions;
+        border: 1px solid $color-actions;
+        padding: 0.1rem 2rem;
+        border-radius: 2rem 0 2rem 2rem;
+        transition: all 0.1s cubic-bezier(0.39, 0.575, 0.565, 1);
+        &:hover {
+            color: $color-light-gray;
+            border-color: $color-light-gray;
+            transform: translateY(-2px);
+        }
+        &:active {
+            transform: translateY(0px);
+            color: $color-actions;
+            border-color: $color-actions;
+        }
+    }
+}
+
+*::selection {
+    background-color: none;
+    color: none;
+}
