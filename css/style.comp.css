@@ -79,6 +79,7 @@ body {
   background: linear-gradient(90deg, rgba(209, 197, 92, 0.8), rgba(211, 193, 92, 0.8)), url(../assets/bck.png);
   background-size: cover;
   background-position: center;
+  position: relative;
   background-attachment: fixed;
   font-family: SunnyspellsRegular;
   display: grid;
@@ -89,6 +90,11 @@ body {
   }
 }
 @media only screen and (min-width: 1000px) and (min-height: 1000px) {
+  body {
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 1000px) and (min-width: 1000px) {
   body {
     margin: 0;
   }
@@ -392,6 +398,63 @@ body {
 *::selection {
   background-color: none;
   color: none;
+}
+
+.rules {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  z-index: 20;
+  margin: 0;
+  background-color: rgb(0, 0, 0);
+  color: rgb(231, 190, 4);
+  padding: 2rem 3rem;
+  animation: gameAppear 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.rules__heading {
+  font-size: 6.5rem;
+  background: linear-gradient(to left, rgb(255, 255, 255), rgb(231, 190, 4));
+  backdrop-filter: opacity;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 5%;
+}
+.rules__list {
+  padding: 2rem 0;
+}
+.rules p:last-child {
+  font-size: 4rem;
+  margin-top: 5%;
+  text-align: center;
+  background: linear-gradient(to right, rgb(255, 255, 255), rgb(231, 190, 4));
+  backdrop-filter: opacity;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.rules--active {
+  display: flex;
+}
+
+.btn-rules {
+  font-size: 2rem;
+  text-decoration: none;
+  color: rgba(160, 6, 6, 0.822);
+  position: fixed;
+  top: 8%;
+  left: 5%;
+  z-index: 100;
+  border: 2px solid rgba(160, 6, 6, 0.822);
+  padding: 1rem 2rem;
+  transition: all 0.2s ease;
+  border-radius: 30% 0 30%;
+}
+.btn-rules:hover, .btn-rules:active {
+  color: rgb(231, 190, 4);
+  border: 2px solid rgb(231, 190, 4);
 }
 
 /*# sourceMappingURL=style.comp.css.map */

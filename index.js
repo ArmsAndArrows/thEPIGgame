@@ -24,6 +24,8 @@ let totals = [0, 0];
 let currentTurnNumber = 0;
 let playerFlag = 1;
 
+
+
 ///Functions
 
 function switchPlayer() {
@@ -42,7 +44,7 @@ function switchTogglers() {
 
 rollBtn.addEventListener("click", function () {
   const rolledNumber = Math.trunc(Math.random() * 6 + 1);
-  dice.src = `./assets/d${rolledNumber}.png`;
+  dice.src = `../assets/d${rolledNumber}.png`;
   if (rolledNumber !== 1) {
     currentTurnNumber += rolledNumber;
     document.querySelector(`.current__score--${playerFlag}`).textContent =
@@ -98,6 +100,9 @@ restartBtn.addEventListener("click", function () {
   }
 });
 
+
+
+
 ///INTRO ANIMATION
 
 function dispNone() {
@@ -109,3 +114,23 @@ function dispFlex() {
 }
 setTimeout(dispNone, 1300);
 setTimeout(dispFlex, 1300);
+
+
+///RULES MENU
+
+const rulesButton = document.querySelector('.btn-rules');
+const rulesSection = document.querySelector('.rules');
+
+
+///RULES LOGIC
+
+rulesButton.addEventListener('click', function(){
+  
+  rulesButton.textContent ="Close"
+ 
+  if (rulesSection.classList.contains("rules--active")){
+    rulesButton.textContent ="Rules"
+  }
+
+  rulesSection.classList.toggle("rules--active")
+})

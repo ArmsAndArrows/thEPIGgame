@@ -71,6 +71,7 @@ html {
     box-sizing: border-box;
     // font-size: 62.5%; ////defines
     font-size: 40%;
+   
     @media only screen and (min-width: 400px) {
         font-size: 50%;
     }
@@ -94,6 +95,7 @@ body {
         url(../assets/bck.png);
     background-size: cover;
     background-position: center;
+    position: relative;
     background-attachment: fixed;
     font-family: SunnyspellsRegular;
     display: grid;
@@ -101,6 +103,9 @@ body {
         margin: 5%;
     }
     @media only screen and (min-width: 1000px) and (min-height: 1000px) {
+        margin: 0;
+    }
+    @media only screen and (min-width: 1000px) and (min-width: 1000px) {
         margin: 0;
     }
 }
@@ -394,3 +399,69 @@ body {
     background-color: none;
     color: none;
 }
+
+
+
+///RULES BUTTON
+
+.rules{
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    z-index: 20;
+    margin: 0;
+    background-color: $color-black;
+    color: $color-actions;
+    padding: 2rem 3rem;
+    animation: gameAppear 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+    
+    &__heading{
+        font-size: 6.5rem;
+        background: linear-gradient(to left, $color-white, $color-actions);
+        backdrop-filter: opacity;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 5%;
+    }
+    &__list{
+        padding: 2rem 0;
+    }
+    p:last-child{
+        font-size: 4rem;
+        margin-top: 5%;
+        text-align: center;
+        background: linear-gradient(to right, $color-white, $color-actions);
+        backdrop-filter: opacity;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        
+    }
+
+    &--active{
+        display: flex;
+    }
+}
+
+.btn-rules{
+    font-size: 2rem;
+    text-decoration: none;
+    color: $color-total;
+    position: fixed;
+    top: 8%;
+    left: 5%;
+    z-index: 100;
+    border: 2px solid $color-total;
+    padding: 1rem 2rem;
+    transition: all 0.2s ease;
+    border-radius: 30% 0 30%;
+    &:hover, &:active{
+        color: $color-actions;
+        border: 2px solid $color-actions;
+    }
+}
+
+

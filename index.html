@@ -15,13 +15,45 @@
     <title>thEPIGgame</title>
   </head>
   <body>
-    <header class="logo"><h1>th<span>E PIG</span> game</h1></header>
+    <header class="logo">
+      <h1>th<span>E PIG</span> game</h1>
+    </header>
     <main class="container">
+      <button class="btn-rules" aria-label="Rules" href="" class="">
+        Rules
+      </button>
+      <div class="rules">
+        <h1 class="rules__heading">Rules</h1>
+        <br>
+        <p>
+          Each turn, a player repeatedly rolls a dice until either a 1 is rolled
+          or the player decides to "hold":
+        </p>
+        <ul class="rules__list">
+          <li>
+            If the player rolls a 1, they score nothing and it becomes the next
+            player's turn.
+          </li>
+          <li>
+            If the player rolls any other number, it is added to their turn
+            total and the player's turn continues.
+          </li>
+          <li>
+            If a player chooses to "hold", their turn total is added to their
+            score, and it becomes the next player's turn.
+          </li>
+        </ul>
+        <br>
+        <p>The first player to score 100 or more points wins.</p>
+  
+       
+      </div>
+   
       <div class="player player--1 player--active">
         <div class="player__actual">
           <p class="player__win player__win--1">You win!</p>
-          <p class="player__name">P
-            <span>layer 1 </span
+          <p class="player__name">
+            P <span>layer 1 </span
             ><span class="player__win-check player__win-check--1"
               ><i class="fa-solid fa-check"></i
             ></span>
@@ -36,8 +68,8 @@
       <div class="player player--2">
         <div class="player__actual">
           <p class="player__win player__win--2">You win!</p>
-          <p class="player__name">P
-            <span>layer 2 </span
+          <p class="player__name">
+            P <span>layer 2 </span
             ><span class="player__win-check player__win-check--2"
               ><i class="fa-solid fa-check"></i
             ></span>
