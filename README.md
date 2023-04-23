@@ -23,4 +23,4 @@ To win the game, a player must reach a score of 100 or more points.
 
 ### Credits
 
-This code was created by an unknown author. It utilizes HTML, CSS, and JavaScript to create the game.
+This code was created by Shchetkov Maksim. It utilizes HTML, SCSS, and JavaScript to create the game.
